@@ -1,1 +1,49 @@
-<p>resume works!</p>
+<div class="container text-center">
+    <button (click)="DownloadFile()" class="btn btn-primary mb-5 shadow border">Download PDF Resume</button>
+    <div class="pb-2">
+        <accordion [isAnimated]="true" class="shadow">
+            <accordion-group heading="Education">
+                <button class="btn btn-block justify-content-between d-flex w-100" according-heading>
+                    <div style="visibility: hidden;">></div>
+                    <div class="btn-link">Work Experience</div>
+
+                    <div style="width: 10.95px;">
+                        <div *ngIf="!isWorkExperienceOpen" style="color: white;">></div>
+                        <div *ngIf="isWorkExperienceOpen" style="color: white;">v</div>
+                    </div>
+                </button>
+
+                <div style="text-align: left;">
+                    <h2 class="mb-0">Videregaaende erhvervsuddannelse Datamatiker</h2>
+                    <h3 class="text-primary"> UCN Aalborg Sofiendalsvej</h3>
+                    <ul>
+                        <li>Linga gu linga gu</li>
+                        <li>Panzer consumer johan</li>
+                    </ul>
+                </div>
+            </accordion-group>
+    
+            <accordion-group heading="Work Experience">
+                <div style="text-align: left;">
+                    <h2 class="mb-0">Praktik som softwareudvikler</h2>
+                    <h3 class="text-primary">Unik System Design</h3>
+                </div>
+            </accordion-group>
+    
+            <accordion-group heading="Skills">
+                <div style="text-align: left;">
+                    <h2 class="mb-0">Kan smadre gener i gates</h2>
+                    <h3 class="text-primary">Han trænger nemlig til panzers!!!</h3>
+                </div>
+            </accordion-group>
+    
+            <accordion-group heading="Certifications">
+                <div style="text-align: left;">
+                    <h2 class="mb-0">Hoi4 veteran</h2>
+                    <h3 class="text-primary">Bomb gener i alle campaigns</h3>
+                </div>
+            </accordion-group>
+        </accordion>
+    </div>
+
+</div>
