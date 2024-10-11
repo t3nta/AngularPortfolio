@@ -21,9 +21,16 @@ export class PortfolioComponent implements OnInit{
   projects = {} as Project[];
 
   isCollapsed: boolean = true;
-  typescript: boolean = false;
   angular: boolean = false;
-
+  typescript: boolean = false;
+  javascript: boolean = false;
+  python: boolean = false;
+  csharp: boolean = false;
+  java: boolean = false;
+  react: boolean = false;
+  aspnet: boolean = false;
+  nodejs: boolean = false;
+  filtering: boolean = false;
   constructor(private titleService: Title, private projectService: ProjectsService) {
     this.titleService.setTitle("Pavlo Skyba - Portfolio");
   }  
@@ -40,6 +47,50 @@ export class PortfolioComponent implements OnInit{
     if(this.angular) {
       filterTags.push(Tag.ANGULAR);
     }
+    if(this.javascript) {
+      filterTags.push(Tag.JAVASCRIPT);
+    }
+    if(this.python) {
+      filterTags.push(Tag.PYTHON);
+    }
+    if(this.csharp) {
+      filterTags.push(Tag.CSHARP);
+    }
+    if(this.java) {
+      filterTags.push(Tag.JAVA);
+    }
+    if(this.react) {
+      filterTags.push(Tag.REACT);
+    }
+    if(this.aspnet) {
+      filterTags.push(Tag.ASPNET);
+    }
+    if(this.nodejs) {
+      filterTags.push(Tag.NODEJS);
+    }
+
+    if (this.typescript || this.angular || this.javascript || this.python || this.csharp || this.java || this.react || this.aspnet || this.nodejs) {
+      this.filtering = true;
+    }
+    else {
+      this.filtering = false;
+    }
+
     this.projects = this.projectService.GetProjectsByFilter(filterTags);
   }
+
+  ResetFilters() {
+    this.typescript = false;
+    this.angular = false;
+    this.javascript = false;
+    this.python = false;
+    this.csharp = false;
+    this.java = false;
+    this.react = false;
+    this.aspnet = false;
+    this.nodejs = false;
+    this.filtering = false;
+
+    this.projects = this.projectService.GetProjects();
+    }
 }
